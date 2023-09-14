@@ -12,6 +12,10 @@ opaque_struct!(PyThreadState);
 opaque_struct!(PyInterpreterState);
 
 extern "C" {
+
+    pub fn Py_NewInterpreter() -> *mut PyInterpreterState;
+    pub fn Py_EndInterpreter(arg1: *mut PyInterpreterState);
+
     #[cfg(not(PyPy))]
     pub fn PyInterpreterState_New() -> *mut PyInterpreterState;
     #[cfg(not(PyPy))]
